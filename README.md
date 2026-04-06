@@ -50,3 +50,26 @@ The runtime grows as string length increases, consistent with the expected O(m×
 For the recurrence, if the current characters match (`A[i] == B[j]`), append to the optimal common subsequence of the prior characters. To maximize the score, we add the matching character's value, `v(A[i])`, to the optimal score of the remaining prefixes `OPT(i-1, j-1)`. If the characters don't match, they can't both be part of the optimal common subsequence for this step sp we must see what happens if we ignore the last character of A (`OPT(i-1, j)`) or ignore the last character of B (`OPT(i, j-1)`). We take the `max()` of the two choices to make sure we carry forward the highest possible value.
 
 ---
+
+## Question 3: Big-Oh
+
+**Pseudocode:**
+```text
+m = length of string A
+n = length of string B
+2D matrix 'score' with (m + 1) rows and (n + 1) columns, equal to 0
+for row from 1 to m:
+    for col from 1 to n:
+        if A[row] = B[col]:
+            char_weight = values[A[row]]
+            score[row][col] = score[row-1][col-1] + char_weight
+        else:
+            skip_A = score[row-1][col]
+            skip_B = score[row][col-1]
+            score[row][col] = max(skip_A, skip_B)
+return score[m][n]
+```
+
+**Runtime:** O(m × n)
+
+**Explanation:** The algorithm uses a 2D matrix named `score` to keep track of the max values, using the lengths of the two strings for its dimensions. It uses two nested `for` loops to go through every single position in the matrix. In the loop, it only performs constant-time `O(1)` operations by checking if characters match, pulling a weight from the dict, doing a simple addition, or comparing two numbers to find the maximum. Because it does `O(1)` work exactly `m × n` times, the overall time complexity is `O(m × n)`.
