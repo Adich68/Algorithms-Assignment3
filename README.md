@@ -1,5 +1,5 @@
 # Programming Assignment 3: Highest Value Common Subsequence
-**Names:** Peyton Hecht, Adi Chauhan  
+**Names:** Peyton Hecht (99580280), Adi Chauhan (78721054) 
 **Course:** COP4533  
 **Date:** April 6, 2026  
 
