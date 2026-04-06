@@ -15,7 +15,7 @@ python src/hvlcs.py data/example.in
 
 ---
 
-## Problem 1: Empirical Comparison
+## Question 1: Empirical Comparison
 
 The runtime grows as string length increases, consistent with the expected O(m×n) behavior.
 
